@@ -8,7 +8,7 @@ interface Props {
 }
 
 /**
- * Logotype Eutykia : « eutykia » en Outfit, « solutions » dessous.
+ * Logotype Eutykia : « Eutykia » en Outfit, « solutions » dessous.
  * Tracés vectorisés (aucune police requise). Hérite de `currentColor`.
  */
 const Logo = ({ className = "", withBaseline = true, title = "Eutykia Solutions" }: Props) => (

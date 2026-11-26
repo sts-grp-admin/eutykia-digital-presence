@@ -44,7 +44,7 @@ chaque page réponde directement ; toute nouvelle route doit y être ajoutée, a
 
 ## Identité visuelle
 
-- **Logotype** : « eutykia » en Outfit avec « solutions » dessous — `src/components/brand/Logo.tsx`
+- **Logotype** : « Eutykia » en Outfit avec « solutions » dessous — `src/components/brand/Logo.tsx`
   (tracés vectorisés, hérite de `currentColor`).
   Exports prêts à l'emploi dans `public/brand/` (SVG et PNG, pourpre et blanc).
 - **Couleurs** : pourpre `#6F1B47` (primaire), ocre `#AE7D24` (tracés et accents), définies dans `src/index.css`.
