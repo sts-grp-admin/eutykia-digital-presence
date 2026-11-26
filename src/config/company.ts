@@ -10,7 +10,7 @@ export const company = {
   name: "Eutykia Solutions",
   shortName: "Eutykia",
   domain: "eutykia.ma",
-  url: "https://www.eutykia.ma",
+  url: "https://eutykia.ma",
 
   // Adresse email reconstruite à l'exécution (voir lib/email.ts)
   emailUser: "contact",

@@ -1,6 +1,6 @@
 # Eutykia Solutions — Site vitrine
 
-Site web de [Eutykia Solutions](https://www.eutykia.ma) : conseil, développement et accompagnement technique.
+Site web de [Eutykia Solutions](https://eutykia.ma) : conseil, développement et accompagnement technique.
 
 ## Tech Stack
 
@@ -28,11 +28,11 @@ npm run dev
    (Settings → Secrets and variables → Actions → Variables). Sans clé, le formulaire ouvre
    la messagerie du visiteur avec le message pré-rempli.
 3. **Email** — l'adresse affichée est `contact@eutykia.ma` (`emailUser` + `domain` dans `company.ts`).
-4. **GitHub Pages** — Settings → Pages : Source = « GitHub Actions », puis saisir le domaine
-   personnalisé `www.eutykia.ma` (avec un déploiement par Actions, le fichier `public/CNAME`
-   seul ne suffit pas).
-5. **DNS** — enregistrement CNAME `www` vers `<organisation>.github.io`, et enregistrements A de
-   GitHub Pages sur l'apex pour la redirection.
+4. **GitHub Pages** — Settings → Pages : Source = « GitHub Actions », domaine personnalisé
+   `eutykia.ma` (avec un déploiement par Actions, le fichier `public/CNAME` seul ne suffit pas).
+   `www.eutykia.ma` redirige vers `eutykia.ma`.
+5. **DNS** — quatre enregistrements A de GitHub Pages sur l'apex, et un CNAME `www` vers
+   `<compte>.github.io`.
 6. **Arabe** — faire relire la version arabe par un locuteur natif avant publication.
 
 ## Deployment
