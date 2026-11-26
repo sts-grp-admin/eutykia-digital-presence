@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Eutykia Solutions — Conseil et développement IT</title>
+    <meta name="description" content="Eutykia Solutions — conseil, développement et accompagnement technique sur mesure. La réussite de vos projets IT ne doit rien au hasard." />
+    <meta name="author" content="Eutykia Solutions" />
+    <meta name="theme-color" content="#6F1B47" />
+    <link rel="canonical" href="https://www.eutykia.ma/" />
+
+    <meta property="og:title" content="Eutykia Solutions" />
+    <meta property="og:description" content="Conseil, développement et accompagnement technique sur mesure. La réussite de vos projets IT ne doit rien au hasard." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.eutykia.ma/" />
+    <meta property="og:image" content="https://www.eutykia.ma/og-image.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- SPA redirect handler for GitHub Pages -->
+    <script>
+      (function(){
+        try {
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect !== location.href) {
+            history.replaceState(null, null, redirect);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

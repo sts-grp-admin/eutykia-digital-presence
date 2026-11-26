@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Identité Eutykia
+  - pourpre (primaire) : la pourpre antique, teinture de prestige
+  - ocre : accent mat, réservé aux filets et aux fonds sombres
+  - marbre : fonds clairs, légèrement froids
+*/
+@layer base {
+  :root {
+    --background: 300 14% 98.5%;
+    --foreground: 325 28% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 325 28% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 325 28% 12%;
+
+    --primary: 328 61% 27%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 328 64% 20%;
+
+    --secondary: 325 38% 95%;
+    --secondary-foreground: 325 28% 12%;
+
+    --muted: 322 32% 96.5%;
+    --muted-foreground: 320 8% 36%;
+
+    --accent: 325 38% 95%;
+    --accent-foreground: 328 61% 27%;
+
+    --ochre: 38 66% 41%;
+
+    --destructive: 4 74% 44%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 315 12% 87%;
+    --input: 315 8% 55%;
+    --ring: 328 61% 27%;
+
+    --radius: 0.5rem;
+
+    --night: 326 42% 10%;
+    --night-foreground: 315 18% 86%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+
+  /* Arabe : coufique géométrique pour les titres, interlignage plus généreux */
+  :lang(ar) body {
+    font-family: "IBM Plex Sans Arabic", "DM Sans", system-ui, sans-serif;
+  }
+  :lang(ar) :is(h1, h2, h3, h4, .font-heading) {
+    font-family: "Noto Kufi Arabic", "IBM Plex Sans Arabic", system-ui, sans-serif;
+    line-height: 1.45;
+  }
+  :lang(ar) .font-body {
+    font-family: "IBM Plex Sans Arabic", "DM Sans", system-ui, sans-serif;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  /* Sur fond sombre, l'anneau pourpre est invisible */
+  :is(.footer-band, .cta-band) :focus-visible {
+    outline-color: #fff;
+  }
+}
+
+@layer components {
+  .title-page {
+    @apply font-heading font-extrabold text-4xl leading-[1.12] tracking-tight md:text-[3.25rem] md:leading-[1.08] text-balance;
+  }
+  .title-section {
+    @apply font-heading font-bold text-[1.75rem] leading-tight tracking-tight md:text-4xl text-balance;
+  }
+  .title-item {
+    @apply font-heading font-bold text-lg leading-snug;
+  }
+  .lede {
+    @apply text-lg leading-relaxed text-muted-foreground;
+    max-width: 62ch;
+  }
+
+  /* Cartes : coins arrondis, relief au survol */
+  .card-grid {
+    @apply grid gap-6;
+  }
+  .card-grid > *,
+  .card {
+    @apply rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/40 hover:shadow-md;
+  }
+
+  /* Fonds : les sections claires se fondent l'une dans l'autre ; en bas de page,
+     le bandeau d'appel et le pied de page tranchent nettement */
+  .hero {
+    background: linear-gradient(180deg, #fff 0%, hsl(var(--accent)) 42%, hsl(var(--accent)) 68%, hsl(var(--background)) 100%);
+  }
+  .page-header {
+    @apply py-14 md:py-20;
+    background: linear-gradient(180deg, hsl(var(--accent)) 0%, hsl(var(--background)) 100%);
+  }
+  .band-soft {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 24%, hsl(var(--muted)) 76%, hsl(var(--background)) 100%);
+  }
+  .cta-band {
+    @apply bg-primary text-primary-foreground;
+  }
+  .footer-band {
+    @apply bg-night text-night-foreground;
+  }
+  .hero-grid {
+    opacity: 0.035;
+    background-image: linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .icon-chip {
+    @apply flex h-12 w-12 items-center justify-center rounded-lg bg-accent text-primary;
+  }
+
+  .band {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Arabe : le coufique est plus large et plus haut que Plus Jakarta Sans */
+:lang(ar) .title-page {
+  font-size: 2rem;
+  line-height: 1.4;
+}
+:lang(ar) .title-section {
+  font-size: 1.625rem;
+  line-height: 1.45;
+}
+:lang(ar) :is(.title-page, .title-section, .title-item) {
+  letter-spacing: normal;
+}
+:lang(ar) .title-item {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  :lang(ar) .title-page {
+    font-size: 3rem;
+  }
+  :lang(ar) .title-section {
+    font-size: 2.125rem;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Apparition douce des blocs à l'entrée dans l'écran (posée par Layout) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
